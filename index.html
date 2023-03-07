@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload="drawChart(), loadCourse()">
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <h2>WBCHAIN/MKPRU Kurs</h2>
+    <div>Ein Bitcoin kostet <b id="course">22000</b>USD</div>
+    <input id="getDate" type="date" value="2023-03-07" max="2023-03-07">
+    <button id="addDate" onclick="addDate()">Preis ermitteln</button>
+
+
+
+
+</body>
+
+</html>
