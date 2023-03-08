@@ -17,11 +17,13 @@ async function loadCourse() {
 
 function addDate(){
     let date = document.getElementById('getDate');
-    apiDataDate.push(date.value);
+    let datePrice = date.value;
+    apiDataDate.push(datePrice);
+    
     addPrice(apiDataDate);
 }
-async function addPrice(apiDataDate){
-    let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${apiDataDate}&end_date=${apiDataDate}=2023-03-07&api_key=${API_KEY}`
+async function addPrice(datePrice){
+    let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${datePrice}&end_date=${datePrice}&api_key=${API_KEY}`
     let response = await fetch(url);
     let responseAsJson = await response.json();
     let course =responseAsJson['dataset']['data'][0][1];
@@ -31,25 +33,7 @@ async function addPrice(apiDataDate){
 
 
 function drawChart() {
-    const ctx = document.getElementById('myChart');
-    const myChart =new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: apiDataDate,
-            datasets: [{
-                label: '# of Votes',
-                data: apiData,
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+
     
 }
 

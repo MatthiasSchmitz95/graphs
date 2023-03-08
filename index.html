@@ -18,12 +18,30 @@
     <h2>WBCHAIN/MKPRU Kurs</h2>
     <div>Ein Bitcoin kostet <b id="course">22000</b>USD</div>
     <input id="getDate" type="date" value="2023-03-07" max="2023-03-07">
-    <button id="addDate" onclick="addDate()">Preis ermitteln</button>
-<div>
-    Test
-</div>
+    <button id="addDate" onclick="addDate(),updateChart()">Preis ermitteln</button>
 
+    <script>
+    const ctx = document.getElementById('myChart');
+    const myChart =new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: apiDataDate,
+            datasets: [{
+                label: '# of Votes',
+                data: apiData,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 
+</script>
 
 </body>
 
